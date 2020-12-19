@@ -12,6 +12,13 @@ import DetailTransaksi from './DetailTransaksi';
 import Pesan from './Pesan';
 import PesanSukses from './PesanSukses';
 import Ulasan from './Ulasan';
+import Kuliner from './Kuliner';
+import KulinerDetail from "./KulinerDetail";
+import Penginapan from './Penginapan';
+import PenginapanDetail from './PenginapanDetail';
+import PesanKamar from './PesanKamar';
+import Wahana from "./Wahana";
+import WahanaDetail from "./WahanaDetail";
 
 const Stack = createStackNavigator();
 
@@ -70,6 +77,41 @@ const AppStack = () => {
             <Stack.Screen
                 name="Ulasan"
                 component={Ulasan}
+                options={{headerShown: false}}
+            />
+            <Stack.Screen
+                name="Kuliner"
+                component={Kuliner}
+                options={{headerShown: false}}
+            />
+            <Stack.Screen
+                name="KulinerDetail"
+                component={KulinerDetail}
+                options={{headerShown: false}}
+            />
+            <Stack.Screen
+                name="Penginapan"
+                component={Penginapan}
+                options={{headerShown: false}}
+            />
+            <Stack.Screen
+                name="PenginapanDetail"
+                component={PenginapanDetail}
+                options={{headerShown: false}}
+            />
+            <Stack.Screen
+                name="PesanKamar"
+                component={PesanKamar}
+                options={{headerShown: false}}
+            />
+            <Stack.Screen
+                name="Wahana"
+                component={Wahana}
+                options={{headerShown: false}}
+            />
+            <Stack.Screen
+                name="WahanaDetail"
+                component={WahanaDetail}
                 options={{headerShown: false}}
             />
         </Stack.Navigator>

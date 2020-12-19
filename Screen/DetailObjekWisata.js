@@ -35,24 +35,30 @@ const DetailOB = ({navigation}) => {
                     <Text style={detailob.rute}>Rute</Text>
                 </View>
             </View>
-            <View style={detailob.menu}>
-                <FontAwesome5 style={detailob.menuIcon} name="bed" size={20} color="#000000"/> 
-                <Text style={detailob.menuTitle}>Penginapan</Text>
-            </View>
+            <TouchableOpacity onPress = {() => navigation.navigate('Penginapan')}>
+                <View style={detailob.menu}>
+                    <FontAwesome5 style={detailob.menuIcon} name="bed" size={20} color="#000000"/> 
+                    <Text style={detailob.menuTitle}>Penginapan</Text>
+                </View>
+            </TouchableOpacity>
             <TouchableOpacity onPress = {() => navigation.navigate('Bahan dan Olahan Lokal')}>
                 <View style={detailob.menu}>
                     <FontAwesome5 style={detailob.menuIcon} name="shopping-cart" size={20} color="#000000"/> 
                     <Text style={detailob.menuTitle}>Bahan dan Olahan Lokal</Text>
                 </View>
             </TouchableOpacity>
-            <View style={detailob.menu}>
-                <FontAwesome5 style={detailob.menuIcon} name="map-marker-alt" size={20} color="#000000"/> 
-                <Text style={detailob.menuTitle1}>Wahana</Text>
-            </View>
-            <View style={detailob.menu}>
-                <FontAwesome5 style={detailob.menuIcon} name="utensils" size={20} color="#000000"/> 
-                <Text style={detailob.menuTitle1}>Kuliner</Text>
-            </View>
+            <TouchableOpacity onPress = {() => navigation.navigate('Wahana')}>
+                <View style={detailob.menu}>
+                    <FontAwesome5 style={detailob.menuIcon} name="map-marker-alt" size={20} color="#000000"/> 
+                    <Text style={detailob.menuTitle1}>Wahana</Text>
+                </View>
+            </TouchableOpacity>
+            <TouchableOpacity onPress = {() => navigation.navigate('Kuliner')}>
+                <View style={detailob.menu}>
+                    <FontAwesome5 style={detailob.menuIcon} name="utensils" size={20} color="#000000"/> 
+                    <Text style={detailob.menuTitle1}>Kuliner</Text>
+                </View>
+            </TouchableOpacity>
         </ScrollView>
     )
 }
