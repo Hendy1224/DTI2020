@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { Text, View, Image,ScrollView, TouchableOpacity, TextInput, Modal} from 'react-native';
+import { Text, View, Image,ScrollView, TouchableOpacity, TextInput, Modal,StyleSheet} from 'react-native';
 import 'react-native-gesture-handler';
 import { useNavigation } from '@react-navigation/native';
 import pesanKamar from '../Styles/StylePesanKamar';
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
 const PesanKamar = () => {
     const [modalVisible, setModalVisible] = useState(false);    
@@ -75,20 +76,20 @@ const PesanKamar = () => {
                         animationType="fade"
                         transparent={true}
                         visible={modalVisible}>
-                        <View style={pesanKamar.centeredView2}>
-                            <View style={pesanKamar.modalView}>
-                                <Image style={pesanKamar.imageSmile} source={require('../Assets/Penginapan/smile.png')} />
-                                <Text style={pesanKamar.textStyle}>ANDA BERHASIL MELAKUKAN PEMESANAN</Text>  
-                                <Text style={pesanKamar.textStyle2}>Kode pemesanan dapat dilihat pada daftar transaksi di menu akun</Text>
-                                <View style={pesanKamar.row}>
-                                    <TouchableOpacity onPress={() => navigation.navigate('Home')}>
-                                        <View style={pesanKamar.buttonStyle2}>
-                                            <Text style={pesanKamar.pesanStyle3}>Home</Text>
+                        <View style = {styless.container}>
+                            <View style = {styless.view}>
+                                <FontAwesome5 name={'grin-beam'} size={96} color="#C3C9D1"/>
+                                <Text style = {styless.judul}>ANDA BERHASIL MELAKUKAN PEMESANAN</Text>
+                                <Text style = {styless.keterangan}>Kode pemesanan dapat dilihat pada daftar transaksi di menu akun</Text>
+                                <View style = {styless.buttonContainer}>
+                                    <TouchableOpacity onPress = {() => navigation.navigate('Home')}>
+                                        <View style = {styless.button}>
+                                            <Text style = {styless.textHome}>Home</Text>
                                         </View>
                                     </TouchableOpacity>
-                                    <TouchableOpacity onPress={() => navigation.navigate('PenginapanDetail')}>
-                                        <View style={pesanKamar.buttonStyle2}>
-                                            <Text style={pesanKamar.pesanStyle2}>Daftar Transaksi</Text>
+                                    <TouchableOpacity onPress = {() => navigation.navigate('Akun')}>
+                                        <View style = {styless.button}>
+                                            <Text style = {styless.textTransaksi}>Daftar Transaksi</Text>
                                         </View>
                                     </TouchableOpacity>
                                 </View>
@@ -102,3 +103,56 @@ const PesanKamar = () => {
 };
 
 export default PesanKamar;
+const styless =StyleSheet.create({
+    //Berita
+    container: {
+        flex: 1,
+        alignItems:'center',
+        justifyContent: 'center',
+    },
+    view:{
+        backgroundColor:'#FFFFFF',
+        width: 260,
+        height: 365,
+        alignItems: "center",
+        justifyContent: 'center',
+        borderRadius: 10,
+    },
+    judul:{
+        textAlign: 'center',
+        marginTop: 10,
+        width:230,
+    },
+    keterangan:{
+        textAlign:'center',
+        fontSize: 10,
+        width:230,
+        color: '#796B6B',
+    },
+    buttonContainer: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+    },
+    button:{
+        marginTop:20,
+        marginLeft: 20,
+        marginRight: 20,
+        alignItems: 'center',
+        width: 80,
+        height: 50,
+        backgroundColor: '#39B7EE',
+        borderRadius: 5,
+    },
+    textHome:{
+        fontSize: 14,
+        textAlign: 'center',
+        color: '#FFFFFF',
+        margin: 16,
+    },
+    textTransaksi:{
+        fontSize: 14,
+        textAlign: 'center',
+        color: '#FFFFFF',
+        margin: 8,
+    },
+})
