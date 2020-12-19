@@ -5,7 +5,7 @@ const penginapan = StyleSheet.create({
         backgroundColor: '#FFFFFF'
     },
     container: {
-        flex: 1
+        margin: 16,
     },
     viewSub:{
         backgroundColor: 'rgba(56, 183, 238, 0.75)',
@@ -23,57 +23,67 @@ const penginapan = StyleSheet.create({
         fontSize: 26,
     },
     itemContainer: {
-        width: '90%',
-        flex: 1,
+        width: '100%',
         backgroundColor: '#FFFFFF',
         borderRadius: 10,
-        marginTop: 10,
-        marginBottom: 5,
-        marginHorizontal: 20,
-        borderWidth: 1,
+        borderWidth: 2,
+        paddingLeft: 16,
+        paddingTop: 16,
+        paddingBottom: 16,
+        paddingRight: 16,
+        marginBottom: 16,
     },
-    viewItem: {
+    viewItem:{
         flexDirection: 'row',
-        marginVertical: 10,
-        marginHorizontal: 10,
+        justifyContent: 'space-around',
     },
-    viewItemData: {
-        paddingLeft: 10
+    image: {
+        width: 120,
+        height: 80,
+    },
+    keterangan: {
+        width: '65%',
+        height: '100%',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        marginLeft: 16,
+        paddingLeft: 8,
+        paddingRight: 24,
+    },
+    itemView:{
+        width: '80%',
     },
     itemTitle: {
-        fontFamily: 'Poppins', 
         fontSize: 18,
         color: '#363636',
     },
     itemLokasi: {
-        fontFamily: 'Poppins', 
-        fontSize: 11,
-        color: '#727070',
+        fontSize: 12,
+        color: '#363636',
+    },
+    itemMulai: {
+        fontSize: 12,
+        color: '#363636',
     },
     itemHarga: {
-        fontFamily: 'Poppins', 
-        fontSize: 11,
-        color: '#F88C29',
-        fontWeight: 'bold',
+        fontSize: 12,
+        color: '#EFB155',
     },
     itemRating: {
-        fontFamily: 'Poppins', 
         fontSize: 12,
-        color: 'rgba(0, 0, 0, 0.67)',
-        marginTop: 2,
-        marginLeft: '20%',
+        color: '#EFB155',
     },
     itemStar: {
-        marginTop: 2,
+        width: 12,
+        height: 12,
     },
-    viewArrow: {
-       flexDirection: 'row' 
+    itemArrow:{
+        marginTop: 20,
     },
-    arrow: {
-        marginTop: -10,
-        marginLeft: '35%',
-    }
-
+    ratingView:{
+        alignItems: 'flex-end',
+        marginLeft: 8,
+    },
 })
 
 export default penginapan;

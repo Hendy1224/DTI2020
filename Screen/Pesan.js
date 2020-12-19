@@ -43,12 +43,12 @@ const Pesan = () => {
                     <View style = {styles.isiBarangContainer}>
                         <View>
                             <Text style = {styles.nama}>Total Pembayaran</Text>
-                            <Text style = {styles.nama}>(Dibayar Saat Diantar)</Text>
+                            <Text style = {styles.pembara}>(Dibayar Saat Diantar)</Text>
                         </View>
                         <Text style = {styles.nama}>Rp. 30.000,-</Text>
                     </View>
                 </View>
-                <TouchableOpacity  onPress={() => {setModalVisible(true);}}>
+                <TouchableOpacity onPress={() => {setModalVisible(true);}}>
                     <View style = {styles.buttonContainer}>
                         <View style = {styles.button}>
                             <Text style = {styles.pesan}>Pesan</Text>
@@ -117,10 +117,11 @@ const styless =StyleSheet.create({
     },
     button:{
         marginTop:20,
-        marginLeft: 20,
-        marginRight: 20,
+        marginLeft: 15,
+        marginRight: 15,
+        marginBottom:20,
         alignItems: 'center',
-        width: 80,
+        width: 100,
         height: 50,
         backgroundColor: '#39B7EE',
         borderRadius: 5,

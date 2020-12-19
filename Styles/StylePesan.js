@@ -27,16 +27,23 @@ const styles = StyleSheet.create({
     },
     borderBarang: {
         width: '100%',
-        height: 140,
+        height: 150,
         borderWidth: 2,
         borderRadius: 10,
-        padding: 16,
+        paddingTop: 16,
+        paddingBottom: 16,
+        paddingLeft: 16,
+        paddingRight: 16,
     },
     isiBarangContainer:{
         flexDirection: 'row',
         justifyContent: 'space-between',
     },
     nama: {
+        fontSize: 14,
+        fontWeight: '300',
+    },
+    pembayaran: {
         fontSize: 14,
         fontWeight: '300',
     },

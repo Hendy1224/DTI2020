@@ -109,6 +109,20 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
     },
+    modal:{
+        alignItems: 'flex-end',
+        justifyContent: 'flex-end',
+        marginTop: 60,
+        paddingRight: 16,
+        backgroundColor: '#39B7EE',
+    },
+    logout: {
+        fontSize: 16,
+        color: '#FFFFFF',
+    },
+    logoutIcon: {
+        marginRight: 16,
+    },
 })
 
 export default styles;

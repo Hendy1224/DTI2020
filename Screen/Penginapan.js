@@ -3,6 +3,7 @@ import { Text, View, FlatList,Image,ScrollView, TouchableOpacity} from 'react-na
 import 'react-native-gesture-handler';
 import penginapan from '../Styles/StylePenginapan';
 import { useNavigation } from '@react-navigation/native';
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
 const DATA = [
     {
@@ -57,27 +58,28 @@ const DATA = [
 ];
 
 const Item = ({ item, onPress}) => (
-        <View style={penginapan.itemContainer}>
-            <View style={penginapan.viewItem}>
-                <Image source={require('../Assets/Penginapan/Kamar.png')} />
-                <View style={penginapan.viewItemData}>
-                    <View style={penginapan.viewArrow}>
-                        <Text style={penginapan.itemTitle}>{item.title}</Text>
-                        <Text style={penginapan.itemRating}>{item.rating}</Text>
-                        <Image style={penginapan.itemStar}
-                            source={require('../Assets/Penginapan/star.png')} />
-                    </View>
-                    <Text style={penginapan.itemLokasi}>Lokasi : {item.lokasi}</Text>
-                    <Text style={penginapan.itemLokasi}>Mulai dari :</Text>
-                    <View style={penginapan.viewArrow}>
-                        <Text style={penginapan.itemHarga}>Rp. {item.harga}/per malam</Text>
-                        <TouchableOpacity onPress={onPress}>
-                            <Image style={penginapan.arrow} source={require('../Assets/arrow-right.png')} />
-                        </TouchableOpacity>
-                    </View>
+    <View style={penginapan.itemContainer}>
+        <View style={penginapan.viewItem}>
+            <Image style={penginapan.Image} source={require('../Assets/Penginapan/Kamar.png')} />
+            <View style={penginapan.keterangan}>
+                <View style={penginapan.itemView}>
+                    <Text style={penginapan.itemTitle}>{item.title}</Text>
+                    <Text style={penginapan.itemLokasi}>{item.lokasi}</Text>
+                    <Text style={penginapan.itemMulai}>Mulai dari:</Text>
+                    <Text style={penginapan.itemHarga}>Rp. {item.harga}/per malam</Text>
+                </View>
+                <View style={penginapan.ratingView}>
+                    <Text>
+                        {item.rating}<Image style={penginapan.itemStar}
+                            source={require('../Assets/Penginapan/star.png')} /> 
+                    </Text>
+                    <TouchableOpacity onPress={onPress}>
+                        <FontAwesome5 style={penginapan.itemArrow} name="arrow-right" size={20} color="#000000"/> 
+                    </TouchableOpacity>
                 </View>
             </View>
         </View>
+    </View>
 );
 
 const Penginapan = () => {
@@ -97,13 +99,13 @@ const Penginapan = () => {
 
     return (
         <ScrollView style={penginapan.bg}>
+            <View style={penginapan.viewSub}>
+                <TouchableOpacity onPress={() => navigation.navigate('Home')}>
+                    <Image source={require('../Assets/arrow-back.png')} />
+                </TouchableOpacity>
+                <Text style={penginapan.sub}>Penginapan</Text>
+            </View>
             <View style={penginapan.container}>
-                <View style={penginapan.viewSub}>
-                    <TouchableOpacity onPress={() => navigation.navigate('Home')}>
-                        <Image source={require('../Assets/arrow-back.png')} />
-                    </TouchableOpacity>
-                    <Text style={penginapan.sub}>Penginapan</Text>
-                </View>
                 <FlatList
                     data={DATA}
                     renderItem={renderItem}

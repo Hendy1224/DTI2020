@@ -1,5 +1,6 @@
 import * as React from 'react';
-import {Text, View,FlatList,SafeAreaView,Image,TextInput,TouchableOpacity} from 'react-native';
+import { useState } from "react";
+import {Text, View,FlatList,SafeAreaView,Image,TextInput,TouchableOpacity, Modal} from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { useNavigation } from '@react-navigation/native';
 import home from '../Styles/StyleHome';
@@ -81,7 +82,9 @@ const Home = () => {
                         style = {home.image}
                         source={require('../Assets/pantai.png')}/>
                     <Text style={home.namaWisata}>Pantai Idola</Text>
-                    <FontAwesome5 name={'chevron-right'} size={30} color="#000000" style={home.next}/>
+                    <TouchableOpacity onPress = {() => navigation.navigate('Detail Objek Wisata')}>
+                        <FontAwesome5 name={'chevron-right'} size={30} color="#000000" style={home.next}/>
+                    </TouchableOpacity>
                 </View>
             </View>
             <Text style={home.title}>Berita Terbaru</Text>
@@ -202,6 +205,7 @@ const TransaksiItem = ({ item, onPress}) => (
 
 const Akun = ()=>{
     const navigation = useNavigation();
+    const [modalVisible, setModalVisible] = useState(false);    
     const [selectedId, setSelectedId] = React.useState(null);
     const renderItem = ({ item }) => {
         return (
@@ -219,7 +223,9 @@ const Akun = ()=>{
             <View style={akun.header}>
                 <View style={akun.itemHeader}>
                     <Text style={akun.headerTitle}>Akun</Text>
-                    <FontAwesome5 style={akun.headerIcon} name={'bars'} size={30} color="#FFFFFF"/>
+                    <TouchableOpacity onPress={() => {setModalVisible(true);}}>
+                        <FontAwesome5 style={akun.headerIcon} name={'bars'} size={30} color="#FFFFFF"/>
+                    </TouchableOpacity>
                 </View>
             </View>
             <View style={akun.container}>
@@ -242,6 +248,17 @@ const Akun = ()=>{
                     />
                 </View>
             </View>
+            <Modal
+                animationType="fade"
+                transparent={true}
+                visible={modalVisible}>
+                <View style={akun.modal}>
+                    <TouchableOpacity onPress = {() => navigation.navigate('Login')}>
+                        <Text style={akun.logout}>Logout <FontAwesome5 style={akun.logoutIcon} name={'sign-out-alt'} size={20} color="#FFFFFF"/>
+                        </Text>
+                    </TouchableOpacity>
+                </View>
+            </Modal>
         </ScrollView>
     )
 }
