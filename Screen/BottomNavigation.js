@@ -3,6 +3,8 @@ import {Text, View,FlatList,SafeAreaView,Image,TextInput,TouchableOpacity} from 
 import { ScrollView } from 'react-native-gesture-handler';
 import { useNavigation } from '@react-navigation/native';
 import home from '../Styles/StyleHome';
+import ob from '../Styles/StyleObjekWisata';
+import akun from '../Styles/StyleAkun';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
 
@@ -93,23 +95,154 @@ const Home = () => {
     ) 
 }
 
+const OB = [
+    {
+        id: "1",
+        title: "Pantai Idola",
+        time: "08.00 - 16.00",
+        description: 'Merupakan objek wisata yang terdisi dari beberapa wahana dan restoran khas daerah lokal.',
+    },
+    {
+        id: "2",
+        title: "Pelabuhan Banyutowo",
+        time: "08.00 - 16.00",
+        description: 'Merupakan objek wisata yang terdisi dari beberapa wahana dan restoran khas daerah lokal.',
+    },
+];
+
+const OBItem = ({ item, onPress}) => (
+    <TouchableOpacity onPress={onPress}>
+        <View style={ob.container}>
+            <View style={ob.bgItem}>
+                <Image
+                    style = {ob.image}
+                    source={require('../Assets/pantai.png')}/>
+                <Text style={ob.title}>{item.title}</Text>
+            </View>
+        </View>
+    </TouchableOpacity>
+);
+
 const ObjekWisata = ()=>{
     const navigation = useNavigation();
+    const [selectedId, setSelectedId] = React.useState(null);
+    const renderItem = ({ item }) => {
+        return (
+            <OBItem
+                item={item}
+                // onPress={() => setSelectedId(item.id)}
+                onPress = {() =>
+                    navigation.navigate('Detail Objek Wisata')
+                }
+            />
+        );
+    };
 
     return(
-        <Text onPress = {() =>
-            navigation.navigate('Bahan dan Olahan Lokal')
-        }>
-            Bahan dan Olahan Lokal
-        </Text>
+        <View>
+            <View style={ob.header}>
+                <Text style={ob.headerTitle}>Objek Wisata</Text>
+            </View>
+            <FlatList
+                data={OB}
+                renderItem={renderItem}
+                keyExtractor={(item) => item.id}
+                extraData={selectedId}
+            />
+        </View>
     )
 }
 
+const Transaksi = [
+    {
+        id: "1",
+        title: "Reservasi Penginapan A",
+        kode: "RP001",
+        tanggal: "04 Desember 2020",
+        waktu: "15.00",
+        status: "Sedang Diproses",
+    },
+    {
+        id: "2",
+        title: "Pembelian Ikan Nila",
+        kode: "IK001",
+        tanggal: "04 Desember 2020",
+        waktu: "12.00",
+        status: "Sedang Disiapkan",
+    },
+];
+
+const TransaksiItem = ({ item, onPress}) => (
+        <View>
+            <Text style={akun.transaksiTitle}>{item.title}</Text>
+            <View style={akun.keteranganContainer}>
+                <View style={akun.judulKeterangan}>
+                    <Text style={akun.transaksiItem}>Kode</Text>
+                    <Text style={akun.transaksiItem}>Tanggal Reservasi</Text>
+                    <Text style={akun.transaksiItem}>Waktu Reservasi</Text>
+                    <Text style={akun.transaksiItem}>Status</Text>
+                </View>
+                <View style={akun.isiKeterangan}>
+                    <Text style={akun.transaksiItem}>: {item.kode}</Text>
+                    <Text style={akun.transaksiItem}>: {item.tanggal}</Text>
+                    <Text style={akun.transaksiItem}>: {item.waktu}</Text>
+                    <Text style={akun.transaksiItem}>: {item.status}</Text>
+                </View>
+            </View>
+            <TouchableOpacity onPress={onPress}>
+                <View style={akun.bgButton}>
+                    <Text style={akun.btn}>Detail Tansaksi</Text>
+                </View>
+            </TouchableOpacity>
+            <View style={akun.bgList}>
+                
+            </View>
+        </View>
+);
+
 const Akun = ()=>{
+    const navigation = useNavigation();
+    const [selectedId, setSelectedId] = React.useState(null);
+    const renderItem = ({ item }) => {
+        return (
+            <TransaksiItem
+                item={item}
+                // onPress={() => setSelectedId(item.id)}
+                onPress = {() =>
+                    navigation.navigate('Detail Transaksi')
+                }
+            />
+        );
+    };
     return(
-        <Text>
-            Akun Screen
-        </Text>
+        <ScrollView>
+            <View style={akun.header}>
+                <View style={akun.itemHeader}>
+                    <Text style={akun.headerTitle}>Akun</Text>
+                    <FontAwesome5 style={akun.headerIcon} name={'bars'} size={30} color="#FFFFFF"/>
+                </View>
+            </View>
+            <View style={akun.container}>
+                <View style={akun.profile}>
+                    <Image
+                        style = {akun.profileImage}
+                        source={require('../Assets/idola.png')}/>
+                    <View style={akun.profileName}>
+                        <Text style={akun.name}>Story</Text>
+                        <Text style={akun.email}>story@gmail.com</Text>
+                    </View>
+                </View>
+                <View style={akun.transaksiContainer}>
+                    <Text style={akun.daftarTransaksi}>Daftar Transaksi</Text>
+                    <FlatList
+                        data={Transaksi}
+                        renderItem={renderItem}
+                        keyExtractor={(item) => item.id}
+                        extraData={selectedId}
+                    />
+                </View>
+            </View>
+        </ScrollView>
     )
 }
 

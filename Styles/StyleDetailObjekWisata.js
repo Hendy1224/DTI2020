@@ -1,0 +1,131 @@
+import {StyleSheet} from 'react-native';
+
+const styles = StyleSheet.create({
+    header: {
+        flexDirection: 'row',
+        justifyContent: 'flex-start',
+        borderRadius: 10,
+        marginTop: 16,
+        marginLeft: 16,
+        marginRight: 16,
+    },
+    headerTitle: {
+        fontSize: 20,
+        fontWeight: '500',
+        marginLeft: 16,
+        color: '#000000',
+    },
+    imageContainer: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginLeft: 16,
+        marginRight: 16,
+        marginTop: 16,
+    },
+    bgItem: {
+        width: '100%',
+        height: '100%',
+        borderRadius: 15,
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+    },
+    image: {
+        width: '85%',
+        height: 150,
+        margin: 16,
+        borderRadius: 7,
+    },
+    chevron: {
+        marginLeft: 16,
+        marginRight: 16,
+        marginTop: 80,
+    },
+    deskripsiContainer: {
+        marginLeft: 16,
+        marginRight: 16,
+        marginTop: 12,
+        marginBottom: 16,
+        backgroundColor: '#E6E9EB',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        borderRadius: 10,
+    },
+    viewDeskripsi: {
+        width: '65%',
+        marginLeft: 16,
+        marginBottom: 16,
+        marginTop: 16,
+    },
+    deskripsi:{
+        fontSize: 14,
+        fontWeight: 'bold',
+        color: '#000000',
+    },
+    isiDeskripsi:{
+        fontSize: 12,
+        color: '#000000',
+    },
+    jamBuka:{
+        fontSize: 14,
+        color: '#000000',
+        fontWeight: 'bold',
+        marginTop: 10,
+    },
+    isiJam:{
+        fontSize: 12,
+        color: '#F88C29',
+    },
+    viewRute: {
+        width: 80,
+        height: 80,
+        marginBottom: 30,
+        marginTop: 30,
+        marginRight: 200,
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: '#DFE8F6',
+        borderRadius: 10,
+    },
+    iconRute: {
+        marginLeft: 16,
+        marginRight: 16,
+        marginTop: 16,
+    },
+    rute: {
+        fontSize: 14,
+        fontWeight: '500',
+        color: '#000000',
+        marginBottom: 16,
+    },
+    menu: {
+        flexDirection: 'row',
+        justifyContent: 'flex-start',
+        borderRadius: 8,
+        marginLeft: 16,
+        marginRight: 16,
+        marginBottom: 16,
+        backgroundColor: '#DFE8F6',
+    },
+    menuIcon: {
+        marginTop: 8,
+        marginBottom: 8,
+        marginLeft: 8,
+    },
+    menuTitle: {
+        marginTop: 8,
+        marginBottom: 8,
+        marginLeft: 55,
+        fontSize: 17,
+        fontWeight: 'bold',
+    },
+    menuTitle1: {
+        marginTop: 8,
+        marginBottom: 8,
+        marginLeft: 60,
+        fontSize: 17,
+        fontWeight: 'bold',
+    },
+})
+
+export default styles;

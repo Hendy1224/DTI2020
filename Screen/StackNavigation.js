@@ -7,8 +7,11 @@ import BottomNavigation from './Home';
 import DetailBerita from './DetailBerita';
 import Belanja from './Belanja';
 import DetailBelanja from './DetailBelanja';
+import DetailObjekWisata from './DetailObjekWisata';
+import DetailTransaksi from './DetailTransaksi';
 import Pesan from './Pesan';
 import PesanSukses from './PesanSukses';
+import Ulasan from './Ulasan';
 
 const Stack = createStackNavigator();
 
@@ -53,6 +56,20 @@ const AppStack = () => {
             <Stack.Screen
                 name="Pesan Sukses"
                 component={PesanSukses}
+                options={{headerShown: false}}
+            />
+            <Stack.Screen
+                name="Detail Objek Wisata"
+                component={DetailObjekWisata}
+                options={{headerShown: false}}
+            />
+            <Stack.Screen
+                name="Detail Transaksi"
+                component={DetailTransaksi}
+            />
+            <Stack.Screen
+                name="Ulasan"
+                component={Ulasan}
                 options={{headerShown: false}}
             />
         </Stack.Navigator>
